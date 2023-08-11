@@ -6,15 +6,15 @@ on:
     branches: [ main, "*" ]
 
 jobs:
-    pre-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "The job is automatically triggered by a ${{ github.event_name }} event."
+  pre-deploy:
+      runs-on: ubuntu-latest
+      steps:
+         - run: echo "The job is automatically triggered by a ${{ github.event_name }} event."
 
-            install-dependencies:
-                runs-on: ubuntu-latest
-                steps:
-                  - name: Check out repository code
-                    uses: actions/checkout@v3
-                  - name: Run installation of dependencies commands
-                    run: npm install
+  install-dependencies:
+     runs-on: ubuntu-latest
+     steps:
+     - name: Check out repository code
+       uses: actions/checkout@v3
+     - name: Run installation of dependencies commands
+       run: npm install
