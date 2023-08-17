@@ -29,6 +29,16 @@ jobs:
         run: npm install
       - name: Run unit testing command
         run: npm test
+  snyk-scan:
+    runs-on: ubuntu-latest
+    needs: unit-testing
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install SNYK CLI
+        run: npm install -g snyk
+      - name: Run SNYK package vulnerability scan
+        run: snyk test --all-projects
   deploy:
     name: deploy
     runs-on: ubuntu-latest
